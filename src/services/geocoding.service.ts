@@ -1,4 +1,5 @@
 import {/* inject, */ BindingScope, injectable} from '@loopback/core';
+import {Keys} from '../config/keys';
 import {GeocodeResponse} from '../models/geocode-response.model';
 const fetch = require('node-fetch');
 
@@ -11,11 +12,11 @@ export class GeocodingService {
    */
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   async getPoints(address: String): Promise<GeocodeResponse> {
-    const key = process.env.KEY_GEOCODING;
+    const key = Keys.KEY_GEOCODING;
     const url =
       'https://maps.googleapis.com/maps/api/geocode/json?address=' +
       address +
-      '&' +
+      '&key=' +
       key;
 
     const response = new GeocodeResponse();

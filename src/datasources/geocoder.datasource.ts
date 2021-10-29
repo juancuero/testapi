@@ -1,5 +1,6 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
+import {Keys} from '../config/keys';
 
 const config = {
   name: 'geocoder',
@@ -16,7 +17,7 @@ const config = {
         method: 'GET',
         url: 'https://maps.googleapis.com/maps/api/geocode/json',
         query: {
-          key: process.env.KEY_GEOCODING,
+          key: Keys.KEY_GEOCODING,
           address: '{address}',
         },
       },
