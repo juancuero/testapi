@@ -163,10 +163,10 @@ describe('UserController', () => {
     });
     await app.boot();
 
-    app.dataSource(testdb);
     await app.start();
+    app.dataSource(testdb);
     const existingSchema = 'drop';
-    await app.migrateSchema({existingSchema, models: ['User']});
+    await app.migrateSchema({existingSchema});
 
     client = createRestAppClient(app);
   }

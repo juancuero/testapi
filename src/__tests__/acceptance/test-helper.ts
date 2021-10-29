@@ -23,7 +23,7 @@ export async function setupApplication(): Promise<AppWithClient> {
 
   app.dataSource(testdb);
   const existingSchema = 'drop';
-  await app.migrateSchema({existingSchema, models: ['User']});
+  await app.migrateSchema({existingSchema});
   await app.start();
 
   const client = createRestAppClient(app);
